@@ -14,3 +14,7 @@ export function toggleTodo(todos, id) {
 export function remainingCount(todos) {
   return todos.filter((t) => !t.done).length;
 }
+
+export function clearCompleted(todos) {
+  return todos.filter((t) => !t.done);
+}
