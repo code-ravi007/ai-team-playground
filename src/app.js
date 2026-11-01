@@ -1,4 +1,4 @@
-import { addTodo, toggleTodo, remainingCount } from "./todos.js";
+import { addTodo, toggleTodo, remainingCount, clearCompleted } from "./todos.js";
 
 const STORAGE_KEY = "playground-todos";
 
@@ -23,6 +23,7 @@ const list = document.getElementById("list");
 const count = document.getElementById("count");
 const form = document.getElementById("add-form");
 const input = document.getElementById("new-task");
+const clearButton = document.getElementById("clear-completed");
 
 function render() {
   list.replaceChildren(
@@ -45,6 +46,7 @@ function render() {
   );
   const left = remainingCount(todos);
   count.textContent = `${left} ${left === 1 ? "task" : "tasks"} left`;
+  clearButton.hidden = !todos.some((t) => t.done);
 }
 
 form.addEventListener("submit", (event) => {
@@ -53,6 +55,14 @@ form.addEventListener("submit", (event) => {
   save(todos);
   input.value = "";
   render();
+});
+
+clearButton.addEventListener("click", () => {
+  todos = clearCompleted(todos);
+  save(todos);
+  render();
+  // The button hides itself, so give keyboard users a sensible place to land.
+  input.focus();
 });
 
 render();
