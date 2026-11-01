@@ -1,0 +1,14 @@
+:root { --bg: #fafafa; --fg: #1d1d1f; --muted: #6e6e73; --accent: #3a5bd9; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111113; --fg: #f2f2f4; --muted: #a1a1a6; --accent: #8aa2ff; }
+}
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+main { max-width: 32rem; margin: 3rem auto; padding: 0 1rem; }
+form { display: flex; gap: 0.5rem; }
+input#new-task { flex: 1; padding: 0.5rem; font: inherit; }
+button { padding: 0.5rem 1rem; font: inherit; background: var(--accent); color: #fff; border: 0; border-radius: 4px; }
+ul { list-style: none; padding: 0; }
+li { padding: 0.4rem 0; }
+li.done label { text-decoration: line-through; color: var(--muted); }
+#count { color: var(--muted); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

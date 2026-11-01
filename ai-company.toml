@@ -1,0 +1,15 @@
+# Settings for the AI company team in this repo. Secrets never go here.
+test_command = "node --test"
+base_branch = "main"
+
+# Lighter models for planning roles so the Pro usage limit lasts longer.
+[manager]
+model = "claude-sonnet-5-5"
+[designer]
+model = "claude-sonnet-5-5"
+[reviewer]
+model = "claude-sonnet-5-5"
+[qa]
+model = "claude-sonnet-5-5"
+[tech_writer]
+model = "claude-haiku-5-5"
